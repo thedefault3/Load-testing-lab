@@ -1,0 +1,24 @@
+
+---
+
+## 2) `docker-compose.yml`
+
+```yaml
+version: "3.8"
+services:
+  target:
+    build: ./target
+    container_name: safe_target
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_ENV=production
+
+  # k6 service is optional — we run it on demand via `docker-compose run --rm k6 ...`
+  k6:
+    image: loadimpact/k6:latest
+    volumes:
+      - ./loadtests:/loadtests
+    entrypoint: ["k6"]
+    networks:
+      - default
