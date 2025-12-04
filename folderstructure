@@ -1,0 +1,11 @@
+safe-loadtest-lab/
+├─ README.md
+├─ LICENSE
+├─ docker-compose.yml
+├─ target/
+│ ├─ Dockerfile
+│ └─ app.py
+└─ loadtests/
+├─ k6/
+│ └─ loadtest.js
+└─ README-k6.md
